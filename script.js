@@ -28,13 +28,16 @@ function drawLine(pixelCount) {
         line.appendChild( createBox(boxSize) );
     }
 
-    canvas.appendChild(line);
+    return line;
 }
 
 function drawCanvas(size) {
+    const canvasOut = document.createElement("div");
     for (let i = 0; i < size; i++) {
-        drawLine(size);
+        canvasOut.appendChild(drawLine(size));
     }
+
+    canvas.appendChild(canvasOut);
 }
 
 //funkce pro reset obsahu plátna
