@@ -1,3 +1,9 @@
+:root {
+    --clr-hero: #FF7B7B;
+    --clr-button: #005aa1;
+    --clr-dark: #2f4858;
+}
+
 *,
 ::before,
 ::after {
@@ -10,4 +16,96 @@ body {
     padding: 0;
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.button {
+    text-transform: uppercase;
+    font-family: inherit;
+    border-radius: 50px;
+    border: none;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.button:hover {
+    scale: 1.05;
+}
+
+.button:focus {
+    color: #FF7B7B;
+}
+
+.wrapper {
+    width: min(80%, 1200px);
+    margin-inline: auto;
+}
+
+/*********************************************header*********************************************/
+
+header {
+    background-color: var(--clr-hero);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+}
+
+.hero__header {
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+}
+
+.hero__settings {
+    background-color: var(--clr-button);
+    color: #fff;
+}
+
+/*********************************************main*********************************************/
+
+.primary-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.canvas {
+    width: min(80vw, 500px);
+    height: min(80vw, 500px);
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(215, 215, 215);
+}
+
+.btn-reset {
+    color: var(--clr-button);
+    border: 3px solid var(--clr-button);
+    background-color: transparent;
+}
+
+/*********************************************footer*********************************************/
+
+footer {
+    background-color: var(--clr-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 1.5em;
+}
+
+footer a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
 }
