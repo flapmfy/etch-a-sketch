@@ -81,6 +81,8 @@ header {
 }
 
 .canvas {
+box-sizing: content-box;
+
     width: min(80vw, 500px);
     height: min(80vw, 500px);
     background-color: rgb(240, 240, 240);
