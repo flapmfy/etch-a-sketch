@@ -29,7 +29,7 @@ main {
     font-family: inherit;
     border-radius: 50px;
     border: none;
-    padding: 0.5em 2em;
+    padding: 1em 2em;
     cursor: pointer;
     font-weight: 900;
 }
@@ -55,12 +55,14 @@ header {
 
 .hero {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 0.6rem 0;
 }
 
 .hero__header {
     color: #fff;
+    font-size: 2rem;
     font-family: 'Pacifico', cursive;
 }
 
@@ -86,7 +88,7 @@ box-sizing: content-box;
     width: min(80vw, 500px);
     height: min(80vw, 500px);
     background-color: rgb(240, 240, 240);
-    border: 1px solid rgb(215, 215, 215);
+    border: 2px solid rgb(215, 215, 215);
 }
 
 .btn-reset {
