@@ -1,6 +1,6 @@
 "use strict";
 
-let pixelSize = 10;
+let pixelsPerSide = 16;
 const canvasDiv = document.querySelector(".js-canvas");
 const sizeSetter = document.querySelector(".hero__settings");
 const reset = document.querySelector(".js-reset");
@@ -13,12 +13,12 @@ function createBox(size) {
     return box;
 }
 
-function drawLine(boxCount) {
+function drawLine(boxCount, pixelSize) {
     let line = document.createElement("div");
-    line.style.cssText = "display: flex";
+    line.style.cssText = "display: flex; max-width: 100%; width: 100%;";
 
     for (let i = 0; i < boxCount; i++) {
-        line.appendChild( createBox(50) );
+        line.appendChild( createBox(pixelSize) );
     }
 
     return line;
@@ -26,23 +26,25 @@ function drawLine(boxCount) {
 
 function drawCanvas(size) {
     const canvasGrid = document.createElement("div");
+    let pixelSize = getPixelSize();
+
     for (let i = 0; i < size; i++) {
-        canvasGrid.appendChild(drawLine(size));
+        canvasGrid.appendChild(drawLine(size, pixelSize));
     }
 
     canvasDiv.appendChild(canvasGrid);
 }
 
-function getSize() {
+function getPixelSize() {
     let canvasSize = canvasDiv.clientWidth;
-    let pixelCount = canvasSize / pixelSize;
+    let pixelSize = canvasSize / pixelsPerSide;
 
-    return pixelCount;
+    return pixelSize;
 }
 
-drawCanvas(10);
-console.log(canvasDiv.clientWidth);
-console.log(getSize());
+drawCanvas(pixelsPerSide);
+
+
 //funkce pro reset obsahu plátna
 //funkce pro výpočet počtu pixelů a řádek, které se vejdou na plátno
 //funkce start pro, která vypočte velikost a vykreslí plátno
