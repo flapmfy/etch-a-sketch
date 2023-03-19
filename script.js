@@ -3,9 +3,21 @@
 let pixelsPerSide = 16;
 const canvasDiv = document.querySelector(".js-canvas");
 const sizeSetter = document.querySelector(".hero__settings");
-const reset = document.querySelector(".js-reset");
-const start = document.querySelector(".js-start");
+const clear = document.querySelector(".js-clear");
+const update = document.querySelector(".js-update");
 
+sizeSetter.addEventListener('click', () => {
+    pixelsPerSide = prompt("How many pixels per side?", 10);
+    clearCanvas();
+    drawCanvas(pixelsPerSide);
+})
+
+update.addEventListener('click', () => {
+    clearCanvas();
+    drawCanvas(pixelsPerSide);
+})
+
+clear.addEventListener('click', () => clearCanvas())
 
 function createBox(size) {
     const box = document.createElement("div");
@@ -42,8 +54,9 @@ function getPixelSize() {
     return pixelSize;
 }
 
-drawCanvas(pixelsPerSide);
-
+function clearCanvas() {
+    canvasDiv.innerHTML = "";
+}
 
 //funkce pro reset obsahu plátna
 //funkce pro výpočet počtu pixelů a řádek, které se vejdou na plátno
