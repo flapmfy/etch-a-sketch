@@ -1,12 +1,10 @@
 "use strict";
 
-//modal start
 const modal = document.querySelector(".modal");
 const test = document.querySelector(".test");
 const close = document.querySelector(".close");
 const radioButtons = document.querySelectorAll("input[name='behavior']");
 const set = document.querySelector(".js-set");
-//modal end
 
 let pixelsPerSide = 16;
 const canvasDiv = document.querySelector(".js-canvas");
@@ -19,7 +17,7 @@ set.addEventListener('click', () => {
     pixelsPerSide = Number(document.querySelector("#pixels").value);
     clearCanvas();
     drawCanvas(pixelsPerSide);
-    addEfect();
+    addEfect(); 
 });
 
 sizeSetter.addEventListener('click', () => modal.style.display = "block");
@@ -93,7 +91,3 @@ function clearColor() {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach(box => box.style.backgroundColor = "white");
 }
-
-//funkce pro reset obsahu plátna
-//funkce pro výpočet počtu pixelů a řádek, které se vejdou na plátno
-//funkce start pro, která vypočte velikost a vykreslí plátno
