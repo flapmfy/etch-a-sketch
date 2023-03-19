@@ -16,7 +16,7 @@
         <header>
             <section class="hero wrapper">
                 <h1 class="hero__header">Etch-A-Sketch</h1>
-                <button class="hero__settings button">Change size</button>
+                <button class="hero__settings button">Settings</button>
             </section>
         </header>
         
@@ -29,6 +29,36 @@
         </section>
     </main>
 
+    <div class="modal">
+        <section class="modal__window">
+            
+
+            <h1 class="form__header">Settings</h1>
+
+            <div class="settings">
+                <span class="btn-close close">&times;</span>
+
+                <section>
+                    <h2 class="settings__header">Pixels per side</h2>
+                    <input type="number" class="form__input" name="" id="pixels">
+                </section>
+
+                <section>
+                    <h2 class="settings__header">Brush behavior</h2>
+                    <div class="radioboxes">
+                        <label>
+                            <input type="radio" name="behavior" value="mouseover" id="" checked> hover
+                        </label>
+                        <label>
+                            <input type="radio" name="behavior" id="" value="click"> click
+                        </label>
+                    </div>
+                </section>
+
+                <button class="button btn-modal js-set">Set</button>
+            </div>
+        </section>
+    </div>
     <footer>
         <a href="https://www.theodinproject.com">The odin project</a>
     </footer>
