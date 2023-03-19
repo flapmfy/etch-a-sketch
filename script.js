@@ -1,5 +1,6 @@
 "use strict";
 
+let pixelSize = 10;
 const canvasDiv = document.querySelector(".js-canvas");
 const sizeSetter = document.querySelector(".hero__settings");
 const reset = document.querySelector(".js-reset");
@@ -32,7 +33,16 @@ function drawCanvas(size) {
     canvasDiv.appendChild(canvasGrid);
 }
 
+function getSize() {
+    let canvasSize = canvasDiv.clientWidth;
+    let pixelCount = canvasSize / pixelSize;
+
+    return pixelCount;
+}
+
 drawCanvas(10);
+console.log(canvasDiv.clientWidth);
+console.log(getSize());
 //funkce pro reset obsahu plátna
 //funkce pro výpočet počtu pixelů a řádek, které se vejdou na plátno
 //funkce start pro, která vypočte velikost a vykreslí plátno
