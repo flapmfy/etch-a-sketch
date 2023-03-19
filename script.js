@@ -10,18 +10,28 @@ sizeSetter.addEventListener('click', () => {
     pixelsPerSide = prompt("How many pixels per side?", 10);
     clearCanvas();
     drawCanvas(pixelsPerSide);
+    addEfect();
 })
 
 update.addEventListener('click', () => {
     clearCanvas();
     drawCanvas(pixelsPerSide);
+    addEfect();
 })
 
 clear.addEventListener('click', () => clearCanvas())
 
+function addEfect() {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => {
+        box.addEventListener('mousedown', () => box.style.backgroundColor = "black");
+    })
+}
+
 function createBox(size) {
     const box = document.createElement("div");
     box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white; border: 1px solid black`;
+    box.classList.add("box");
     return box;
 }
 
