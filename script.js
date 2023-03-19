@@ -19,7 +19,7 @@ update.addEventListener('click', () => {
     addEfect();
 })
 
-clear.addEventListener('click', () => clearCanvas())
+clear.addEventListener('click', () => clearColor())
 
 function addEfect() {
     const boxes = document.querySelectorAll(".box");
@@ -66,6 +66,11 @@ function getPixelSize() {
 
 function clearCanvas() {
     canvasDiv.innerHTML = "";
+}
+
+function clearColor() {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => box.style.backgroundColor = "white");
 }
 
 //funkce pro reset obsahu plátna
