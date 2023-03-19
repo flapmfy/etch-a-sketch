@@ -38,10 +38,6 @@ main {
     scale: 1.05;
 }
 
-.button:focus {
-    color: #FF7B7B;
-}
-
 .wrapper {
     width: min(80%, 1200px);
     margin-inline: auto;
@@ -96,7 +92,6 @@ box-sizing: content-box;
     border: 3px solid var(--clr-button);
     background-color: transparent;
 }
-
 /*********************************************footer*********************************************/
 
 footer {
