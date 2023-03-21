@@ -2,35 +2,39 @@
 
 const modal = document.querySelector(".modal");
 const test = document.querySelector(".test");
-const close = document.querySelector(".close");
+const closeModal = document.querySelector(".close");
 const radioButtons = document.querySelectorAll("input[name='behavior']");
-const set = document.querySelector(".js-set");
+const setSize = document.querySelector(".js-set");
 
 let pixelsPerSide = 16;
 const canvasDiv = document.querySelector(".js-canvas");
-const sizeSetter = document.querySelector(".hero__settings");
+const settingsBtn = document.querySelector(".hero__settings");
 const clear = document.querySelector(".js-clear");
 const update = document.querySelector(".js-update");
 
-set.addEventListener('click', () => {
-    modal.style.display = "none";
+setSize.addEventListener('click', () => {
     pixelsPerSide = Number(document.querySelector("#pixels").value);
-    clearCanvas();
-    drawCanvas(pixelsPerSide);
-    addEfect(); 
+    if (pixelsPerSide <= 80) {
+        modal.style.display = "none";
+        setupCanvas();
+    } else {
+        alert("Maximum number of pixels per side is 80");
+    }
 });
 
-sizeSetter.addEventListener('click', () => modal.style.display = "block");
+settingsBtn.addEventListener('click', () => modal.style.display = "block");
 
-close.addEventListener('click', () => modal.style.display = "none");
+closeModal.addEventListener('click', () => modal.style.display = "none");
 
-clear.addEventListener('click', () => clearColor())
+clear.addEventListener('click', () => clearColor());
 
-update.addEventListener('click', () => {
+update.addEventListener('click', () => setupCanvas());
+
+function setupCanvas() {
     clearCanvas();
     drawCanvas(pixelsPerSide);
     addEfect();
-})
+}
 
 function getCurrentBehavior() {
     for (const radioButton of radioButtons) {
