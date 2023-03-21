@@ -6,6 +6,7 @@ const closeModal = document.querySelector(".close");
 const radioButtons = document.querySelectorAll("input[name='behavior']");
 const setSize = document.querySelector(".js-set");
 
+let pixelColor = "orange";
 let pixelsPerSide = 16;
 const canvasDiv = document.querySelector(".js-canvas");
 const settingsBtn = document.querySelector(".hero__settings");
@@ -30,6 +31,20 @@ clear.addEventListener('click', () => clearColor());
 
 update.addEventListener('click', () => setupCanvas());
 
+//hold experiment
+let hold = false;
+
+canvasDiv.addEventListener('mousedown', () => {
+    hold = true
+    console.log(hold);
+});
+
+canvasDiv.addEventListener('mouseup', () => {
+    hold = false
+    console.log(hold);
+});
+//
+
 function setupCanvas() {
     clearCanvas();
     drawCanvas(pixelsPerSide);
@@ -46,19 +61,28 @@ function getCurrentBehavior() {
 
 function addEfect() {
     const boxes = document.querySelectorAll(".box");
+
     boxes.forEach(box => {
-        box.addEventListener(getCurrentBehavior(), () => box.style.backgroundColor = "black");
+        box.addEventListener(getCurrentBehavior(), () => {
+            if (getCurrentBehavior() === 'mouseover') {
+                if (hold) {
+                    box.style.backgroundColor = pixelColor;
+                }
+            } else {
+                box.style.backgroundColor = pixelColor; 
+            }
+        });
     })
 }
 
 function createBox(size) {
     const box = document.createElement("div");
-    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white; border: 1px solid black`;
+    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white;`;
     box.classList.add("box");
     return box;
 }
 
-function drawLine(boxCount, pixelSize) {
+function drawRow(boxCount, pixelSize) {
     let line = document.createElement("div");
     line.style.cssText = "display: flex; max-width: 100%; width: 100%;";
 
@@ -74,7 +98,7 @@ function drawCanvas(size) {
     let pixelSize = getPixelSize();
 
     for (let i = 0; i < size; i++) {
-        canvasGrid.appendChild(drawLine(size, pixelSize));
+        canvasGrid.appendChild(drawRow(size, pixelSize));
     }
 
     canvasDiv.appendChild(canvasGrid);
@@ -95,3 +119,5 @@ function clearColor() {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach(box => box.style.backgroundColor = "white");
 }
+
+

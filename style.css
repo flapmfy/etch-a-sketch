@@ -76,6 +76,7 @@ header {
     align-items: center;
     gap: 1rem;
     flex: 1;
+    background-color: #e3e3e3;
 }
 
 .canvas {
