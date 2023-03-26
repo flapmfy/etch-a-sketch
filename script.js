@@ -5,6 +5,7 @@ const test = document.querySelector(".test");
 const closeModal = document.querySelector(".close");
 const radioButtons = document.querySelectorAll("input[name='behavior']");
 const setSize = document.querySelector(".js-set");
+const pixelsInput = document.querySelector("#pixels");
 
 let pixelColor = "orange";
 let pixelsPerSide = 16;
@@ -13,8 +14,10 @@ const settingsBtn = document.querySelector(".hero__settings");
 const clear = document.querySelector(".js-clear");
 const update = document.querySelector(".js-update");
 
+setupCanvas();
+
 setSize.addEventListener('click', () => {
-    pixelsPerSide = Number(document.querySelector("#pixels").value);
+    pixelsPerSide = Number(pixelsInput.value);
     if (pixelsPerSide <= 80) {
         modal.style.display = "none";
         setupCanvas();
@@ -30,6 +33,8 @@ closeModal.addEventListener('click', () => modal.style.display = "none");
 clear.addEventListener('click', () => clearColor());
 
 update.addEventListener('click', () => setupCanvas());
+
+
 
 //hold experiment
 let hold = false;
@@ -119,5 +124,3 @@ function clearColor() {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach(box => box.style.backgroundColor = "white");
 }
-
-

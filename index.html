@@ -21,7 +21,7 @@
         </header>
         
         <section class="primary-content">
-            <div class="js-canvas canvas"></div>
+            <div class="js-canvas canvas" ondragstart="return false"></div>
             <div class="canvas-settings">
                 <button class="button js-update">calibrate</button>
                 <button class="button btn-reset js-clear">clear</button>
@@ -47,7 +47,7 @@
                     <h2 class="settings__header">Brush behavior</h2>
                     <div class="radioboxes">
                         <label>
-                            <input type="radio" name="behavior" value="mouseover" id="" checked> hover
+                            <input type="radio" name="behavior" value="mouseover" id="" checked> hold
                         </label>
                         <label>
                             <input type="radio" name="behavior" id="" value="click"> click
