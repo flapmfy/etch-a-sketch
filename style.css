@@ -88,6 +88,11 @@ box-sizing: content-box;
     border: 2px solid rgb(215, 215, 215);
 }
 
+.canvas-size {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 .btn-reset {
     color: var(--clr-button);
     border: 3px solid var(--clr-button);

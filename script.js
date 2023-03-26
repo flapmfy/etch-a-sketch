@@ -9,17 +9,20 @@ const pixelsInput = document.querySelector("#pixels");
 
 let pixelColor = "orange";
 let pixelsPerSide = 16;
+const sizeDisplay = document.querySelector(".canvas-size");
 const canvasDiv = document.querySelector(".js-canvas");
 const settingsBtn = document.querySelector(".hero__settings");
 const clear = document.querySelector(".js-clear");
 const update = document.querySelector(".js-update");
 
 setupCanvas();
+displayCurrentSize(pixelsPerSide);
 
 setSize.addEventListener('click', () => {
     pixelsPerSide = Number(pixelsInput.value);
     if (pixelsPerSide <= 80) {
         modal.style.display = "none";
+        displayCurrentSize(pixelsPerSide);
         setupCanvas();
     } else {
         alert("Maximum number of pixels per side is 80");
@@ -35,8 +38,6 @@ clear.addEventListener('click', () => clearColor());
 update.addEventListener('click', () => setupCanvas());
 
 
-
-//hold experiment
 let hold = false;
 
 canvasDiv.addEventListener('mousedown', () => {
@@ -46,7 +47,6 @@ canvasDiv.addEventListener('mousedown', () => {
 canvasDiv.addEventListener('mouseup', () => {
     hold = false
 });
-//
 
 function setupCanvas() {
     clearCanvas();
@@ -111,4 +111,8 @@ function clearCanvas() {
 function clearColor() {
     const boxes = document.querySelectorAll(".box");
     boxes.forEach(box => box.style.backgroundColor = "white");
+}
+
+function displayCurrentSize(size) {
+    sizeDisplay.textContent = `${size} X ${size}`;
 }

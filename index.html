@@ -16,12 +16,18 @@
         <header>
             <section class="hero wrapper">
                 <h1 class="hero__header">Etch-A-Sketch</h1>
-                <button class="hero__settings button">Settings</button>
+                <button class="hero__settings button">Set size</button>
             </section>
         </header>
         
         <section class="primary-content">
-            <div class="js-canvas canvas" ondragstart="return false"></div>
+            <div class="playfield">
+                <div class="container">
+                    <div class="canvas-size"></div>
+                    <div class="js-canvas canvas" ondragstart="return false"></div>
+                </div>
+            </div>
+
             <div class="canvas-settings">
                 <button class="button js-update">calibrate</button>
                 <button class="button btn-reset js-clear">clear</button>
@@ -33,7 +39,7 @@
         <section class="modal__window">
             
 
-            <h1 class="form__header">Settings</h1>
+            <h1 class="form__header">Size</h1>
 
             <div class="settings">
                 <span class="btn-close close">&times;</span>
@@ -41,18 +47,6 @@
                 <section>
                     <h2 class="settings__header">Pixels per side</h2>
                     <input type="text" inputmode="numeric" pattern="[0-9]*" class="form__input" name="" id="pixels">
-                </section>
-
-                <section>
-                    <h2 class="settings__header">Brush behavior</h2>
-                    <div class="radioboxes">
-                        <label>
-                            <input type="radio" name="behavior" value="mouseover" id="" checked> hold
-                        </label>
-                        <label>
-                            <input type="radio" name="behavior" id="" value="click"> click
-                        </label>
-                    </div>
                 </section>
 
                 <button class="button btn-modal js-set">Set</button>
