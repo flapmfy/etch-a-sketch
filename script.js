@@ -70,7 +70,7 @@ function addEfect() {
 
 function createBox(size) {
     const box = document.createElement("div");
-    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white;`;
+    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white; border: 1px solid #f3f3f3`;
     box.classList.add("box");
     return box;
 }

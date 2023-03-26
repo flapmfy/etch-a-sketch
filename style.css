@@ -25,6 +25,7 @@ main {
 }
 
 .button {
+    display: inline-block;
     text-transform: uppercase;
     font-family: inherit;
     border-radius: 50px;
@@ -39,7 +40,7 @@ main {
 }
 
 .wrapper {
-    width: min(80%, 1200px);
+    width: min(85%, 1200px);
     margin-inline: auto;
 }
 
@@ -79,19 +80,63 @@ header {
     background-color: #e3e3e3;
 }
 
-.canvas {
-box-sizing: content-box;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
+.playfield {
+    display: flex;
+    gap: 1rem;
+}
+
+.canvas-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.canvas-size {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.options__option {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.options__option:hover {
+    background-color: var(--clr-hero);
+    color: #fff;
+}
+
+.icon {
+    font-size: 3rem;
+}
+
+.canvas {
+    box-sizing: content-box;
     width: min(80vw, 500px);
     height: min(80vw, 500px);
     background-color: rgb(240, 240, 240);
     border: 2px solid rgb(215, 215, 215);
 }
 
-.canvas-size {
-    text-align: center;
-    font-size: 1.2rem;
-}
+
 
 .btn-reset {
     color: var(--clr-button);
@@ -114,6 +159,9 @@ footer a {
     text-transform: uppercase;
     font-size: 1rem;
 }
+
+/*********************************************modal*********************************************/
+
 
 .modal {
     display: none;
@@ -160,6 +208,14 @@ footer a {
     text-transform: uppercase;
 }
 
+.form__input {
+    max-width: 100%;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    margin-block: 1rem;
+    padding: 0.2rem 0.4rem;
+}
+
 .settings {
     position: relative;
     width: min(70%, 300px);
@@ -171,7 +227,10 @@ footer a {
 }
 
 .settings section {
-    margin-block: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .radioboxes {

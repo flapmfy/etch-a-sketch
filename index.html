@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Pacifico&display=swap" rel="stylesheet">
     <script src="./script.js" defer></script>
+    <script src="https://kit.fontawesome.com/1bd59e9950.js" crossorigin="anonymous"></script>
     <title>Etch-A-Sketch</title>
 </head>
 <body>
@@ -21,24 +22,27 @@
         </header>
         
         <section class="primary-content">
-            <div class="playfield">
-                <div class="container">
-                    <div class="canvas-size"></div>
-                    <div class="js-canvas canvas" ondragstart="return false"></div>
-                </div>
-            </div>
+                <div class="playfield">
+                    <div class="canvas-options">
+                        <div class="options__option canvas-size"><div class=""></div></div>
+                        <div class="options__option js-eraser"><div class="icon"><i class="fa-solid fa-eraser"></i></div>eraser</div>
+                        <div class="options__option js-rainbow"><div class="icon"><i class="fa-solid fa-rainbow"></i></div>rainbow</div>
+                    </div>
+                
+                    <div class="container">
+                        <div class="js-canvas canvas" ondragstart="return false"></div>
 
-            <div class="canvas-settings">
-                <button class="button js-update">calibrate</button>
-                <button class="button btn-reset js-clear">clear</button>
-            </div>
+                        <div class="canvas-settings">
+                            <button class="button js-update">calibrate</button>
+                            <button class="button btn-reset js-clear">clear</button>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 
     <div class="modal">
         <section class="modal__window">
-            
-
             <h1 class="form__header">Size</h1>
 
             <div class="settings">
