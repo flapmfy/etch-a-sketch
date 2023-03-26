@@ -41,12 +41,10 @@ let hold = false;
 
 canvasDiv.addEventListener('mousedown', () => {
     hold = true
-    console.log(hold);
 });
 
 canvasDiv.addEventListener('mouseup', () => {
     hold = false
-    console.log(hold);
 });
 //
 
@@ -56,27 +54,17 @@ function setupCanvas() {
     addEfect();
 }
 
-function getCurrentBehavior() {
-    for (const radioButton of radioButtons) {
-        if (radioButton.checked) {
-            return radioButton.value;
-        }
-    }
-}
-
 function addEfect() {
     const boxes = document.querySelectorAll(".box");
 
     boxes.forEach(box => {
-        box.addEventListener(getCurrentBehavior(), () => {
-            if (getCurrentBehavior() === 'mouseover') {
+        box.addEventListener('mouseover', () => {
                 if (hold) {
                     box.style.backgroundColor = pixelColor;
                 }
-            } else {
-                box.style.backgroundColor = pixelColor; 
-            }
         });
+
+        box.addEventListener('mousedown', () => box.style.backgroundColor = pixelColor)
     })
 }
 
