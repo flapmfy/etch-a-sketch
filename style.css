@@ -21,7 +21,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .button {
@@ -71,13 +71,12 @@ header {
 /*********************************************main*********************************************/
 
 .primary-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #e3e3e3;
+    padding-block: 0.5rem;
 }
 
 .flex--row {
@@ -120,7 +119,11 @@ header {
 }
 
 .canvas-option:hover {
-    background-color: var(--clr-hero);
+    outline: 3px solid black;
+}
+
+.active-option {
+    background-color: rgb(22, 135, 22);
     color: #fff;
 }
 
@@ -146,7 +149,7 @@ header {
 /*********************************************footer*********************************************/
 
 footer {
-    background-color: var(--clr-dark);
+    background-color: rgb(34, 34, 34);
     display: flex;
     justify-content: center;
     align-items: center;

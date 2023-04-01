@@ -1,22 +1,51 @@
 "use strict";
 
+//options
+const sizeDisplay = document.querySelector(".canvas-size");
+const eraser = document.querySelector(".js-eraser");
+const rainbow = document.querySelector(".js-rainbow");
+
+//modal window
+const setSize = document.querySelector(".js-set");
 const modal = document.querySelector(".modal");
-const test = document.querySelector(".test");
 const closeModal = document.querySelector(".close");
 const radioButtons = document.querySelectorAll("input[name='behavior']");
-const setSize = document.querySelector(".js-set");
 const pixelsInput = document.querySelector("#pixels");
 
-let pixelColor = "orange";
-let pixelsPerSide = 16;
-const sizeDisplay = document.querySelector(".canvas-size");
+//canvas
 const canvasDiv = document.querySelector(".js-canvas");
 const settingsBtn = document.querySelector(".hero__settings");
 const clear = document.querySelector(".js-clear");
 const update = document.querySelector(".js-update");
 
+let isEraserActive = false;
+let isRainbowActive = false;
+let pixelColor = "orange";
+let pixelsPerSide = 16;
+let hold = false;
+
 setupCanvas();
 displayCurrentSize(pixelsPerSide);
+
+
+//canvas settings events
+eraser.addEventListener('click', () => {
+    eraser.classList.toggle("active-option");
+    rainbow.classList.remove("active-option");
+    isEraserActive = toggleOption(isEraserActive);
+    isRainbowActive = false;
+});
+
+rainbow.addEventListener('click', () => {
+    rainbow.classList.toggle("active-option");
+    eraser.classList.remove("active-option");
+    isRainbowActive = toggleOption(isRainbowActive);
+    isEraserActive = false;
+});
+
+
+//modal events
+sizeDisplay.addEventListener('click', () => modal.style.display = "block");
 
 setSize.addEventListener('click', () => {
     pixelsPerSide = Number(pixelsInput.value);
@@ -33,12 +62,11 @@ settingsBtn.addEventListener('click', () => modal.style.display = "block");
 
 closeModal.addEventListener('click', () => modal.style.display = "none");
 
+
+//canvas events
 clear.addEventListener('click', () => clearColor());
 
 update.addEventListener('click', () => setupCanvas());
-
-
-let hold = false;
 
 canvasDiv.addEventListener('mousedown', () => {
     hold = true
@@ -47,6 +75,16 @@ canvasDiv.addEventListener('mousedown', () => {
 canvasDiv.addEventListener('mouseup', () => {
     hold = false
 });
+
+
+//*****************************functions*****************************/
+function toggleOption(variable) {
+    if (variable === true) {
+        return false;
+    }
+
+    return true;
+}
 
 function setupCanvas() {
     clearCanvas();
@@ -58,14 +96,32 @@ function addEfect() {
     const boxes = document.querySelectorAll(".box");
 
     boxes.forEach(box => {
-        box.addEventListener('mouseover', () => {
-                if (hold) {
-                    box.style.backgroundColor = pixelColor;
-                }
+        box.addEventListener('mousedown', () => {
+            if (isEraserActive) {
+                box.style.backgroundColor = "white";
+            } else if (isRainbowActive) {
+
+            } else {
+                box.style.backgroundColor = pixelColor;
+            }
         });
 
-        box.addEventListener('mousedown', () => box.style.backgroundColor = pixelColor)
+        box.addEventListener('mouseover', () => {
+                if (hold) {
+                    if (isEraserActive) {
+                        box.style.backgroundColor = "white";
+                    } else if (isRainbowActive) {
+
+                    } else {
+                        box.style.backgroundColor = pixelColor;
+                    }
+                }
+        });
     })
+}
+
+function checkSettings() {
+
 }
 
 function createBox(size) {
