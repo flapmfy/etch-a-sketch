@@ -78,6 +78,16 @@ canvasDiv.addEventListener('mouseup', () => {
 
 
 //*****************************functions*****************************/
+
+function randomNum(low, high) {
+    return Math.floor(Math.random() * (high - low + 1) + low);
+}
+
+function getRandomColor() {
+    let randomColor = `rgb(${randomNum(100, 255)}, ${randomNum(100, 255)}, ${randomNum(100, 255)})`;
+    return randomColor;
+}
+
 function toggleOption(variable) {
     if (variable === true) {
         return false;
@@ -100,7 +110,7 @@ function addEfect() {
             if (isEraserActive) {
                 box.style.backgroundColor = "white";
             } else if (isRainbowActive) {
-
+                box.style.backgroundColor = getRandomColor();
             } else {
                 box.style.backgroundColor = pixelColor;
             }
@@ -111,7 +121,7 @@ function addEfect() {
                     if (isEraserActive) {
                         box.style.backgroundColor = "white";
                     } else if (isRainbowActive) {
-
+                        box.style.backgroundColor = getRandomColor();
                     } else {
                         box.style.backgroundColor = pixelColor;
                     }
