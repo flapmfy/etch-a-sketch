@@ -9,8 +9,9 @@ const rainbow = document.querySelector(".js-rainbow");
 const setSize = document.querySelector(".js-set");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".close");
-const radioButtons = document.querySelectorAll("input[name='behavior']");
 const pixelsInput = document.querySelector("#pixels");
+
+const radioButtons = document.querySelectorAll(".radiobox");
 
 //canvas
 const canvasDiv = document.querySelector(".js-canvas");
@@ -18,12 +19,16 @@ const settingsBtn = document.querySelector(".hero__settings");
 const clear = document.querySelector(".js-clear");
 const update = document.querySelector(".js-update");
 
+//globals
+let borderSize = "1px";
+let defaultColor = "white";
 let isEraserActive = false;
 let isRainbowActive = false;
 let pixelColor = "orange";
 let pixelsPerSide = 16;
 let hold = false;
 
+//setup on load
 setupCanvas();
 displayCurrentSize(pixelsPerSide);
 
@@ -48,7 +53,14 @@ rainbow.addEventListener('click', () => {
 sizeDisplay.addEventListener('click', () => modal.style.display = "block");
 
 setSize.addEventListener('click', () => {
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            borderSize = radioButton.value;
+        }
+    }
+
     pixelsPerSide = Number(pixelsInput.value);
+
     if (pixelsPerSide <= 80) {
         modal.style.display = "none";
         displayCurrentSize(pixelsPerSide);
@@ -106,37 +118,29 @@ function addEfect() {
     const boxes = document.querySelectorAll(".box");
 
     boxes.forEach(box => {
-        box.addEventListener('mousedown', () => {
-            if (isEraserActive) {
-                box.style.backgroundColor = "white";
-            } else if (isRainbowActive) {
-                box.style.backgroundColor = getRandomColor();
-            } else {
-                box.style.backgroundColor = pixelColor;
-            }
-        });
+        box.addEventListener('mousedown', () => {box.style.backgroundColor = setCurrentCanvavsSetting()});
 
         box.addEventListener('mouseover', () => {
                 if (hold) {
-                    if (isEraserActive) {
-                        box.style.backgroundColor = "white";
-                    } else if (isRainbowActive) {
-                        box.style.backgroundColor = getRandomColor();
-                    } else {
-                        box.style.backgroundColor = pixelColor;
-                    }
+                    box.style.backgroundColor = setCurrentCanvavsSetting();
                 }
         });
     })
 }
 
-function checkSettings() {
-
+function setCurrentCanvavsSetting() {
+    if (isEraserActive) {
+        return defaultColor;
+    } else if (isRainbowActive) {
+        return getRandomColor();
+    } else {
+        return pixelColor;
+    }
 }
 
 function createBox(size) {
     const box = document.createElement("div");
-    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: white; border: 1px solid #f3f3f3`;
+    box.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${defaultColor}; border: ${borderSize} solid #f3f3f3`;
     box.classList.add("box");
     return box;
 }
@@ -176,7 +180,7 @@ function clearCanvas() {
 
 function clearColor() {
     const boxes = document.querySelectorAll(".box");
-    boxes.forEach(box => box.style.backgroundColor = "white");
+    boxes.forEach(box => box.style.backgroundColor = defaultColor);
 }
 
 function displayCurrentSize(size) {
