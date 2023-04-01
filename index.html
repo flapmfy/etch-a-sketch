@@ -22,14 +22,14 @@
         </header>
         
         <section class="primary-content">
-                <div class="playfield">
-                    <div class="canvas-options">
-                        <div class="options__option canvas-size"><div class=""></div></div>
-                        <div class="options__option js-eraser"><div class="icon"><i class="fa-solid fa-eraser"></i></div>eraser</div>
-                        <div class="options__option js-rainbow"><div class="icon"><i class="fa-solid fa-rainbow"></i></div>rainbow</div>
+                <div class="wrapper flex--row">
+                    <div class="flex--column">
+                        <div class="canvas-option canvas-size"><div class=""></div></div>
+                        <div class="canvas-option js-eraser"><div class="icon"><i class="fa-solid fa-eraser"></i></div>eraser</div>
+                        <div class="canvas-option js-rainbow"><div class="icon"><i class="fa-solid fa-rainbow"></i></div>rainbow</div>
                     </div>
                 
-                    <div class="container">
+                    <div class="flex--column">
                         <div class="js-canvas canvas" ondragstart="return false"></div>
 
                         <div class="canvas-settings">
@@ -57,6 +57,7 @@
             </div>
         </section>
     </div>
+
     <footer>
         <a href="https://www.theodinproject.com">The odin project</a>
     </footer>
