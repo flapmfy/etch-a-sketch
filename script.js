@@ -4,6 +4,7 @@
 const sizeDisplay = document.querySelector(".canvas-size");
 const eraser = document.querySelector(".js-eraser");
 const rainbow = document.querySelector(".js-rainbow");
+const colorSelect = document.querySelector(".colorpicker");
 
 //modal window
 const setSize = document.querySelector(".js-set");
@@ -24,7 +25,7 @@ let borderSize = "1px";
 let defaultColor = "white";
 let isEraserActive = false;
 let isRainbowActive = false;
-let pixelColor = "orange";
+let pixelColor = colorSelect.value;
 let pixelsPerSide = 16;
 let hold = false;
 
@@ -34,6 +35,8 @@ displayCurrentSize(pixelsPerSide);
 
 
 //canvas settings events
+colorSelect.addEventListener('change', () => pixelColor = colorSelect.value);
+
 eraser.addEventListener('click', () => {
     eraser.classList.toggle("active-option");
     rainbow.classList.remove("active-option");

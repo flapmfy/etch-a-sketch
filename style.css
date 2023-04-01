@@ -131,6 +131,18 @@ header {
     font-size: 3rem;
 }
 
+.color-option {
+    margin-top: 2rem;
+}
+
+.colorpicker {
+    cursor: pointer;
+    border: none;
+    border-radius: 20%;
+    padding: 0;
+    height: 60px;
+}
+
 .canvas {
     box-sizing: content-box;
     width: min(80vw, 500px);
